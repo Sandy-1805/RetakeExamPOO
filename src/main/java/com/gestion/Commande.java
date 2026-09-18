@@ -84,25 +84,29 @@ public class Commande {
         int coutHaut = 0;
         int coutBas = 0;
         if (haut != null) {
-            coutHaut = haut.getPrix_unitaire() * quantite;
+            coutHaut = haut.getPrix_unitaire() * haut.getQuantiteHaut() * quantite;
         }
         if (bas != null) {
-            coutBas = bas.getPrix_unitaire() * quantite;
+            coutBas = bas.getPrix_unitaire() * bas.getQuantiteBas() * quantite;
         }
         return coutHaut + coutBas;
     }
 
     public static void main(String[] args) {
         Client c = new Client("Rakoto", "Jean", "1990-06-19", "LOT_IPV5_Andranomena", "jean@gmail.com", "0323203232");
-        Haut h = new Haut(Materiel.Coton, 20000, Taille.M, "T-shirt", TypeManche.Courtes);
-        Bas b = new Bas(Materiel.Nylon, 5000, Taille.L, "Short_en_jean", 32);
+        Haut h = new Haut(Materiel.Coton, 20000, Taille.M, "T-shirt", TypeManche.Courtes, 10);
+        Bas b = new Bas(Materiel.Nylon, 5000, Taille.L, "Short_en_jean", 32, 5);
 
         c.getNom();
 
         System.out.println("Pour le client " + c.getNom());
 
         Commande commande = new Commande("2026-09-18", "Commande de vetements", 1, h, b, c);
+        b.setQuantiteBas(1);
+        h.setQuantiteHaut(2);
 
         System.out.println("Le cout total de la commande est : " + commande.coutTotal() + " Ariary");
     }
+
+
 }

@@ -46,8 +46,8 @@ public class Vetements {
     }
 
     public static void main(String[] args) {
-        Haut h = new Haut(Materiel.Coton, 20000, Taille.M, "T-shirt", TypeManche.Courtes);
-        Bas b = new Bas(Materiel.Nylon, 5000, Taille.L, "Short_en_jean", 32);
+        Haut h = new Haut(Materiel.Coton, 20000, Taille.M, "T-shirt", TypeManche.Courtes, 10);
+        Bas b = new Bas(Materiel.Nylon, 5000, Taille.L, "Short_en_jean", 32, 5);
 
         h.getTypeManche();
 
